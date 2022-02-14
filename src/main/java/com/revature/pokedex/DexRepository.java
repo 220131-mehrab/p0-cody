@@ -16,7 +16,8 @@ public class DexRepository {
     }
 
     private void load() {
-        Scanner scanner = new Scanner(this.file);
+        Scanner scanner = null;
+        scanner = new Scanner(this.file);
         scanner.useDelimiter("\n");
         while(scanner.hasNext()){
             this.pocketMonsters.add(scanner.next());
