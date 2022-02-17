@@ -16,8 +16,7 @@ public class DexRepository {
     }
 
     private void load() {
-        Scanner scanner = null;
-        scanner = new Scanner(this.file);
+        Scanner scanner = new Scanner(this.file);
         scanner.useDelimiter("\n");
         while(scanner.hasNext()){
             this.pocketMonsters.add(scanner.next());
@@ -25,6 +24,18 @@ public class DexRepository {
     }
 
     public List<String> getPocketMonsters() {
+
         return pocketMonsters;
     }
+
+    public String getPokemon(String name){
+        String result = "";
+        for (String pokemon : this.pocketMonsters){
+            if (pokemon.contains(name)){
+                result = pokemon;
+            }
+        }
+        return result;
+    }
 }
+
