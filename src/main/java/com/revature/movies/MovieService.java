@@ -16,8 +16,16 @@ public class MovieService extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        for(String movie : movieRepository.getMovielist()){
-            resp.getWriter().println(movie);
+        String userInput;
+        userInput = req.getParameter("searchName");
+
+        if(userInput != null){
+            String  result = movieRepository.getMovie(userInput);
+            resp.getWriter().println(result);
+        } else {
+            for (String movie : movieRepository.getMovielist()) {
+                resp.getWriter().println(movie);
+            }
         }
     }
 }

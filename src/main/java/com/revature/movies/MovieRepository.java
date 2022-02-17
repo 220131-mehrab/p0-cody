@@ -26,4 +26,13 @@ public class MovieRepository {
     public List<String> getMovielist() {
         return Movielist;
     }
+    public String getMovie(String name){
+        String result = "";
+        for(String movie : this.Movielist){
+            if(movie.contains(name)){
+                result = movie;
+            }
+        }
+        return result;
+    }
 }
