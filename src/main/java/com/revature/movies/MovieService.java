@@ -20,10 +20,10 @@ public class MovieService extends HttpServlet {
         userInput = req.getParameter("searchName");
 
         if(userInput != null){
-            String  result = movieRepository.getMovie(userInput);
+            String result = movieRepository.getMovie(userInput).getName();
             resp.getWriter().println(result);
         } else {
-            for (String movie : movieRepository.getMovielist()) {
+            for (Movie movie : movieRepository.getMovieList()) {
                 resp.getWriter().println(movie);
             }
         }
