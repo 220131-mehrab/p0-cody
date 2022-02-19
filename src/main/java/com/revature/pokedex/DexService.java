@@ -24,7 +24,7 @@ public class DexService extends HttpServlet {
             String result = dexRepository.getPokemon(userInput).getName();
             resp.getWriter().println(result);
         } else {
-            for (Pokemon pokemon : dexRepository.getPocketMonsters()) {
+            for (Pokemon pokemon : dexRepository.getPocketMonster()) {
                 resp.getWriter().println(pokemon);
             }
         }
