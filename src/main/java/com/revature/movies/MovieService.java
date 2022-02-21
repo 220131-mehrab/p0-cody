@@ -8,9 +8,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class MovieService extends HttpServlet {
-    private MovieRepository movieRepository;
+    private InMemoryMovieRepository movieRepository;
 
-    public MovieService(MovieRepository movieRepository) {
+    public MovieService(InMemoryMovieRepository movieRepository) {
         this.movieRepository = movieRepository;
     }
 

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class MovieRepository {
+public class CSVMovieRepository {
     private List<Movie> Movielist;
     private InputStream file;
 
-    public MovieRepository(String filename){
+    public CSVMovieRepository(String filename){
         this.Movielist = new ArrayList<>();
         this.file = getClass().getClassLoader().getResourceAsStream(filename);
         load();
