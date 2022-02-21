@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args){
         String webAppName = "Movies";
         //CSVMovieRepository movieRepository = new CSVMovieRepository("imdb_movie_data.csv");
-        InMemoryMovieRepository movieRepository = new InMemoryMovieRepository();
+        //InMemoryMovieRepository movieRepository = new InMemoryMovieRepository();
         MovieService movieService = new MovieService(movieRepository);
         SearchFormService sfService = new SearchFormService();
 
