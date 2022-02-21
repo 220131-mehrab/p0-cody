@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CSVMovieRepository {
+public class CSVMovieRepository implements MovieRepository {
     private List<Movie> Movielist;
     private InputStream file;
 
@@ -38,4 +38,10 @@ public class CSVMovieRepository {
         }
         return result;
     }
+
+    @Override
+    public List<Movie> getMovie() {
+        return null;
+    }
+
 }

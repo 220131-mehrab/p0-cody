@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class MovieRepositoryTest {
     @Test
-    public void getMovieTest(){
+    public void getCSVMovieTest(){
         CSVMovieRepository testRepo = new CSVMovieRepository("movietest.csv");
         Movie actual = testRepo.getMovie("Spider-Man 3");
         Movie expected = new Movie("Spider-Man 3");

@@ -8,9 +8,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class MovieService extends HttpServlet {
-    private InMemoryMovieRepository movieRepository;
+    private MovieRepository movieRepository;
 
-    public MovieService(InMemoryMovieRepository movieRepository) {
+    public MovieService(MovieRepository movieRepository) {
+
         this.movieRepository = movieRepository;
     }
 
@@ -23,7 +24,7 @@ public class MovieService extends HttpServlet {
             String result = movieRepository.getMovie(userInput).getName();
             resp.getWriter().println(result);
         } else {
-            for (Movie movie : movieRepository.getMovieList()) {
+            for (Movie movie :  movieRepository.getMovie()) {
                 resp.getWriter().println(movie);
             }
         }

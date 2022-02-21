@@ -6,8 +6,9 @@ import org.apache.catalina.startup.Tomcat;
 public class App {
     public static void main(String[] args){
         String webAppName = "Movies";
-        //CSVMovieRepository movieRepository = new CSVMovieRepository("imdb_movie_data.csv");
-        InMemoryMovieRepository movieRepository = new InMemoryMovieRepository();
+        MovieRepository movieRepository;
+        //movieRepository = new CSVMovieRepository("imdb_movie_data.csv");
+        movieRepository = new InMemoryMovieRepository();
         MovieService movieService = new MovieService(movieRepository);
         SearchFormService sfService = new SearchFormService();
 

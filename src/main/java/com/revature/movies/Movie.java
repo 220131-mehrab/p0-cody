@@ -1,6 +1,8 @@
 package com.revature.movies;
 
-public class Movie {
+import java.util.Objects;
+
+public class Movie implements Comparable<Movie> {
     private int rank;
     private String title;
     private String genre;
@@ -10,7 +12,7 @@ public class Movie {
 
     public Movie(String name){
 
-        this(1005, title, genre,"");
+        this(1005, "", "","");
     }
 
     public Movie(int rank, String title, String genre, String actors) {
@@ -42,12 +44,16 @@ public class Movie {
         return this;
     }
 
+    public String getName(){
+        return this.title;
+    }
+
     public int getRank() {
         return rank;
     }
 
     public String getTitle() {
-        return this.title;
+        return title;
     }
 
     public String getGenre() {
@@ -58,14 +64,31 @@ public class Movie {
         return actors;
     }
 
-    public String getName(){
-        return this.name;
+    @Override
+    public String  toString() {
+        return "Movie{" +
+                "rank=" + rank +
+                ", title='" + title + '\'' +
+                ", genre='" + genre + '\'' +
+                ", actors='" + actors + '\'' +
+                '}';
     }
 
     @Override
-    public String toString() {
-        return this.name;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Movie movie = (Movie) o;
+        return rank == movie.rank && Objects.equals(title, movie.title) && Objects.equals(genre, movie.genre) && Objects.equals(actors, movie.actors);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(rank, title, genre, actors);
+    }
 
+    @Override
+    public int compareTo(Movie o) {
+        return Integer.compare(this.rank, o.getRank());
+    }
 }
